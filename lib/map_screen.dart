@@ -6,6 +6,7 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:pwcmapassignment/costants.dart';
+import 'package:pwcmapassignment/location.dart';
 import 'package:pwcmapassignment/suggestion.dart';
 
 class MapScreen extends StatefulWidget {
@@ -39,6 +40,22 @@ class _MapScreenState extends State<MapScreen> {
     }
 
     return suggestions;
+  }
+
+  Future<Location> _getSuggestionLocation(String placeID) async {
+    //Response from Place Details API
+    final response = await http.get(Uri.parse(
+        "https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeID&key=$apiKey"));
+
+    //Handle status code.
+    print(response.statusCode);
+
+    final body = jsonDecode(response.body);
+
+    final Location location =
+        Location.fromMap(body["result"]["geometry"]["location"]);
+
+    return location;
   }
 
   @override
@@ -94,7 +111,14 @@ class _MapScreenState extends State<MapScreen> {
                 title: Text(suggestion.description),
               );
             },
-            onSuggestionSelected: (suggestion) {},
+            onSuggestionSelected: (suggestion) async {
+              final location = await _getSuggestionLocation(suggestion.placeID);
+
+              await mapController!.animateCamera(
+                CameraUpdate.newLatLngZoom(
+                    LatLng(location.latitude, location.longitude), 9),
+              );
+            },
           ),
         )
       ]),
