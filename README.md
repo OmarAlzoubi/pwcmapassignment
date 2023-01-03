@@ -15,25 +15,25 @@ A website built using flutter and Google's Map and Place APIs that allows users 
 
 ### Building
 
-* Clone the repo
-'''
+Clone the repo
+```
 git clone git@github.com:OmarAlzoubi/pwcmapassignment.git
-'''
-* Add your API key to lib/assets/apikey.dart
+```
+Add your API key to lib/assets/apikey.dart
 
-* Add the following line to web/index.html file
-'''
+Add the following line to web/index.html file
+```
 <script src="https://maps.googleapis.com/maps/api/js?key=YOURAPIKEY"></script>
-'''
+```
 
 
 ### Executing program
 
-* cd <pwcmapassignment>
-* Run this command
-'''
+cd <pwcmapassignment>
+Run this command
+```
 flutter run -d chrome 
-'''
+```
 
 ## Authors
 
