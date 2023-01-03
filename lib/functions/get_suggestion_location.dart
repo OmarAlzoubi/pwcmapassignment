@@ -10,6 +10,8 @@ Future<Location> getSuggestionLocation(String placeID) async {
   final response = await http.get(Uri.parse(
       "https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeID&key=$apiKey"));
 
+  //TODO: Handle status code.
+  
   final body = jsonDecode(response.body);
 
   final Location location =

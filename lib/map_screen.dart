@@ -5,6 +5,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'functions/get_suggestions.dart';
 import 'functions/get_suggestion_location.dart';
 
+//TODO: Add a floating point button to switch map type
+
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
 
@@ -46,6 +48,7 @@ class _MapScreenState extends State<MapScreen> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           child: TypeAheadField(
+            debounceDuration: const Duration(microseconds: 500),
             textFieldConfiguration: TextFieldConfiguration(
               autofocus: true,
               decoration: InputDecoration(
@@ -59,6 +62,7 @@ class _MapScreenState extends State<MapScreen> {
                   color: Color.fromRGBO(99, 128, 134, 1),
                 ),
               ),
+              autocorrect: false,
             ),
             suggestionsCallback: (query) async {
               return await getSuggestions(query);

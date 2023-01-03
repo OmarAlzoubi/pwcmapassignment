@@ -12,8 +12,7 @@ Future<List<Suggestion>> getSuggestions(String query) async {
         "https://maps.googleapis.com/maps/api/place/autocomplete/json?input=$query&key=$apiKey"),
   );
 
-  //Handle status code.
-  print(response.statusCode);
+  //TODO: Handle status code.
   //Response from Place AutoComplete API
   final body = jsonDecode(response.body) as Map<String, dynamic>;
 
