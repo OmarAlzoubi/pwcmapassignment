@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:http/http.dart' as http;
-import 'package:pwcmapassignment/costants.dart';
+import 'package:pwcmapassignment/assets/apikey.dart';
 import 'package:pwcmapassignment/location.dart';
 import 'package:pwcmapassignment/suggestion.dart';
 
