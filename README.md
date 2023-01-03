@@ -1,16 +1,48 @@
-# pwcmapassignment
+# Project Title
 
-A new Flutter project.
+PWC Candidates Assignment.
 
+## Description
+
+A website built using flutter and Google's Map and Place APIs that allows users to search for any location on a map, it also provides suggestions on user.
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Dependencies
 
-A few resources to get you started if this is your first Flutter project:
+* To run this website, you need the following:
+    - Flutter SDK.
+    - Google Maps API Key.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Building
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* Clone the repo
+'''
+git clone git@github.com:OmarAlzoubi/pwcmapassignment.git
+'''
+* Add your API key to lib/assets/apikey.dart
+
+* Add the following line to web/index.html file
+'''
+<script src="https://maps.googleapis.com/maps/api/js?key=YOURAPIKEY"></script>
+'''
+
+
+### Executing program
+
+* cd <pwcmapassignment>
+* Run this command
+'''
+flutter run -d chrome 
+'''
+
+## Authors
+
+[Omar Alzoubi](https://www.linkedin.com/in/omar-alzoubi-823507217/)
+
+
+
+## What to do next?
+
+* Add marker to the currently selected place.
+* Add the functionality to measure distance between two locations.
+* Allow the use to switch the map type (Satalite, Normal..).
